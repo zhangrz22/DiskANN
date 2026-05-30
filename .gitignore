@@ -1,0 +1,4 @@
+*.log
+*.hdf5
+*.ivecs
+*.fvecs
