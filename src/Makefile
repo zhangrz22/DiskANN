@@ -1,13 +1,16 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -O3 -march=native -Wall
-TARGET = diskann_test
+TARGETS = diskann_test epsilon_pairs
 
-all: $(TARGET)
+all: $(TARGETS)
 
-$(TARGET): main.cpp diskann.cpp diskann.h utils.h
-	$(CXX) $(CXXFLAGS) -o $(TARGET) main.cpp diskann.cpp
+diskann_test: main.cpp diskann.cpp diskann.h utils.h
+	$(CXX) $(CXXFLAGS) -o diskann_test main.cpp diskann.cpp
+
+epsilon_pairs: epsilon_pairs.cpp utils.h
+	$(CXX) $(CXXFLAGS) -o epsilon_pairs epsilon_pairs.cpp
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGETS)
 
 .PHONY: all clean
